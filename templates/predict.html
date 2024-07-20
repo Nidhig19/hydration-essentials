@@ -149,6 +149,13 @@
         .check-button:hover {
             background-color: darkblue;
         }
+
+        .upload
+        {
+            width: 256px;
+            height: 256px;
+            object-fit: cover;
+        }
     </style>
 </head>
 
@@ -164,8 +171,9 @@
 
     <div class="middle" style="color: black;">
         <h1>Prediction Result</h1>
-        <br/>
-        <h2> {{ prediction }}</h2>
+        <img class="upload" src="{{file}}" alt="{{prediction}}">
+        <h2> {{ prediction }}
+        </h2>
     </div>
 
     <footer>
