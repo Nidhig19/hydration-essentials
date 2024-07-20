@@ -167,12 +167,18 @@
 
     <div class="middle">
         <div class="button-container">
-            <form id="uploadForm" action="{{url_for('classification')}}" method="post">
-                <input type="file" id="fileInput" class="hidden-file-input" accept="image/*">
+            <form id="uploadForm" action="{{url_for('classification')}}" method="post" enctype="multipart/form-data">
+                <input type="file" id="fileInput" class="hidden-file-input" name="image" accept="image/*">
                 <button type="button" class="proceed-button" onclick="document.getElementById('fileInput').click();">Upload</button>
+                <button type="submit" class="check-button">Check</button>
             </form>
-            <button type="submit" class="check-button">Check</button>
         </div>
+    </div>
+
+    <div class="middle" style="color: black;">
+        <h1>Prediction Result</h1>
+        <br/>
+        <h2> {{ prediction }}</h2>
     </div>
 
     <script>

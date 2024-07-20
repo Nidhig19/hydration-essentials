@@ -4,12 +4,12 @@ import tensorflow as tf
 import pandas as pd
 from keras.models import Model
 from flask import Flask,app,request,render_template
-from keras.models import Model
-from keras.preprocessing import image
+from keras.preprocessing.image import load_img, img_to_array
+from PIL import Image
 from tensorflow.python.ops.gen_array_ops import Concat
 from keras.models import load_model
 
-model=load_model('CNN.h5')
+model=load_model('models//model.h5')
 app=Flask(__name__)
 
 @app.route('/')
@@ -27,16 +27,15 @@ def classification():
         #print("upload folder is",filepath)
         f.save(filepath)
         
-        img = tf.keras.utils.load_img(filepath,target_size=(128,128))
-        x=tf.keras.utils.img_to_array(img)
-        x=x/255.0 
-        x=np.expand_dims(x,axis=0)
+        img = load_img(filepath,target_size=(256,256))
+        x=img_to_array(img)
+        x=x.reshape((1,256,256,3))
         
-        prediction=np.argmax(model.predict(img),axis=1)
+        prediction=np.argmax(model.predict(x),axis=1)
         op=['Full water level','Half water level','Overflowing']
         result=str(op[prediction[0]])
         print(result)
-    return render_template('predict.html',prediction=result)
+    return render_template('classification.html',prediction=result)
 
 if __name__=='__main__':
     app.run(debug=True)
