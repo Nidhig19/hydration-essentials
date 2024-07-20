@@ -36,7 +36,7 @@ def classification():
         op=['Full water level','Half water level','Overflowing']
         result=str(op[prediction[0]])
         print(result)
-    return render_template('classification.html',prediction=result)
+    return render_template('predict.html',prediction=result)
 
 if __name__=='__main__':
     app.run(debug=True)
