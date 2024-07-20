@@ -5,17 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hydration Essentials</title>
+    <link rel="stylesheet" href="ht.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         html, body {
             height: 100%;
-            margin: 0; /* Reset default margin */
-            padding: 0; /* Reset default padding */
+            margin: 0; 
+            padding: 0; 
         }
 
         body {
+            background-color: #326186;
             color: white;
-            font-family: Arial, sans-serif; /* Optional: Set a fallback font */
+            font-family: Arial, sans-serif; 
             display: flex;
             flex-direction: column;
         }
@@ -37,7 +39,7 @@
             padding: 0;
             margin: 0;
             display: flex;
-            justify-content: flex-start; /* Align items to the left */
+            justify-content: flex-start; 
         }
 
         .upper li {
@@ -91,7 +93,7 @@
         }
 
         .middle h2 {
-            font-size: 28px; /* Increased font size by two points */
+            font-size: 28px;
         }
 
         .right {
@@ -117,40 +119,24 @@
             line-height: 1.5;
         }
 
-        .button-container {
-            text-align: center; /* Center align the button */
-        }
-
-        .proceed-button, .check-button {
+        .proceed-button {
+            background-color: red;
+            color: white;
             border: none;
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            text-decoration: none; /* Ensure it's treated like a button */
+            margin-top: 20px;
+            text-decoration: none; 
             display: inline-block;
-            margin: 10px;
-        }
-
-        .proceed-button {
-            background-color: red;
-            color: white;
         }
 
         .proceed-button:hover {
             background-color: darkred;
         }
 
-        .check-button {
-            background-color: blue;
-            color: white;
-        }
-
-        .check-button:hover {
-            background-color: darkblue;
-        }
-
-        .hidden-file-input {
-            display: none;
+        .button-container {
+            text-align: center; 
         }
     </style>
 </head>
@@ -167,25 +153,17 @@
 
     <div class="middle">
         <div class="button-container">
-            <form id="uploadForm">
-                <input type="file" id="fileInput" class="hidden-file-input" accept="image/*">
-                <button type="button" class="proceed-button" onclick="document.getElementById('fileInput').click();">Upload</button>
-            </form>
-            <a href="hh3.html" class="check-button">Check</a>
+            <a href="classification.html" class="proceed-button">Proceed for Water Bottle Classification</a>
         </div>
     </div>
+    
 
-    <script>
-        document.getElementById('fileInput').addEventListener('change', function() {
-            alert('File selected: ' + this.files[0].name);
-        });
-    </script>
-
-<footer>
-    <div class="box">
-        <p>&copy; 2024 Hydration Essentials. All rights reserved.</p>
-    </div>
-</footer>
+    <footer>
+        <div class="box">
+            <h2>Call To Action</h2>
+            <p>Hydration is essential for maintaining bodily functions, such as regulating temperature, lubricating joints, and aiding digestion. Adequate water intake supports overall health, improves energy levels, and enhances cognitive performance. Staying hydrated is crucial for preventing dehydration-related issues like headaches, fatigue, and kidney stones.</p>
+        </div>
+    </footer>
 </body>
 
 </html>

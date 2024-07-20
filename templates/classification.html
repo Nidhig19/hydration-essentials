@@ -9,13 +9,13 @@
     <style>
         html, body {
             height: 100%;
-            margin: 0; 
-            padding: 0; 
+            margin: 0; /* Reset default margin */
+            padding: 0; /* Reset default padding */
         }
 
         body {
             color: white;
-            font-family: Arial, sans-serif; 
+            font-family: Arial, sans-serif; /* Optional: Set a fallback font */
             display: flex;
             flex-direction: column;
         }
@@ -37,7 +37,7 @@
             padding: 0;
             margin: 0;
             display: flex;
-            justify-content: flex-start; 
+            justify-content: flex-start; /* Align items to the left */
         }
 
         .upper li {
@@ -88,11 +88,10 @@
             align-items: center;
             text-align: center;
             padding: 20px;
-            flex-direction: column; 
         }
 
         .middle h2 {
-            font-size: 28px; 
+            font-size: 28px; /* Increased font size by two points */
         }
 
         .right {
@@ -119,7 +118,7 @@
         }
 
         .button-container {
-            text-align: center; 
+            text-align: center; /* Center align the button */
         }
 
         .proceed-button, .check-button {
@@ -127,7 +126,7 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            text-decoration: none; 
+            text-decoration: none; /* Ensure it's treated like a button */
             display: inline-block;
             margin: 10px;
         }
@@ -149,6 +148,10 @@
         .check-button:hover {
             background-color: darkblue;
         }
+
+        .hidden-file-input {
+            display: none;
+        }
     </style>
 </head>
 
@@ -163,14 +166,26 @@
     </header>
 
     <div class="middle">
-        <h1>Prediction Result</h1>
+        <div class="button-container">
+            <form id="uploadForm" action="{{url_for('classification')}}" method="post">
+                <input type="file" id="fileInput" class="hidden-file-input" accept="image/*">
+                <button type="button" class="proceed-button" onclick="document.getElementById('fileInput').click();">Upload</button>
+            </form>
+            <button type="submit" class="check-button">Check</button>
+        </div>
     </div>
 
-    <footer>
-        <div class="box">
-            <p>&copy; 2024 Hydration Essentials. All rights reserved.</p>
-        </div>
-    </footer>
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function() {
+            alert('File selected: ' + this.files[0].name);
+        });
+    </script>
+
+<footer>
+    <div class="box">
+        <p>&copy; 2024 Hydration Essentials. All rights reserved.</p>
+    </div>
+</footer>
 </body>
 
 </html>

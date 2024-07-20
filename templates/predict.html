@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hydration Essentials</title>
-    <link rel="stylesheet" href="ht.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         html, body {
@@ -15,7 +14,6 @@
         }
 
         body {
-            background-color: #326186;
             color: white;
             font-family: Arial, sans-serif; 
             display: flex;
@@ -90,10 +88,11 @@
             align-items: center;
             text-align: center;
             padding: 20px;
+            flex-direction: column; 
         }
 
         .middle h2 {
-            font-size: 28px;
+            font-size: 28px; 
         }
 
         .right {
@@ -119,24 +118,36 @@
             line-height: 1.5;
         }
 
-        .proceed-button {
-            background-color: red;
-            color: white;
+        .button-container {
+            text-align: center; 
+        }
+
+        .proceed-button, .check-button {
             border: none;
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            margin-top: 20px;
             text-decoration: none; 
             display: inline-block;
+            margin: 10px;
+        }
+
+        .proceed-button {
+            background-color: red;
+            color: white;
         }
 
         .proceed-button:hover {
             background-color: darkred;
         }
 
-        .button-container {
-            text-align: center; 
+        .check-button {
+            background-color: blue;
+            color: white;
+        }
+
+        .check-button:hover {
+            background-color: darkblue;
         }
     </style>
 </head>
@@ -151,17 +162,15 @@
         </ul>
     </header>
 
-    <div class="middle">
-        <div class="button-container">
-            <a href="hh2.html" class="proceed-button">Proceed for Water Bottle Classification</a>
-        </div>
+    <div class="middle" style="color: black;">
+        <h1>Prediction Result</h1>
+        <br/>
+        <h2> {{ prediction }}</h2>
     </div>
-    
 
     <footer>
         <div class="box">
-            <h2>Call To Action</h2>
-            <p>Hydration is essential for maintaining bodily functions, such as regulating temperature, lubricating joints, and aiding digestion. Adequate water intake supports overall health, improves energy levels, and enhances cognitive performance. Staying hydrated is crucial for preventing dehydration-related issues like headaches, fatigue, and kidney stones.</p>
+            <p>&copy; 2024 Hydration Essentials. All rights reserved.</p>
         </div>
     </footer>
 </body>
