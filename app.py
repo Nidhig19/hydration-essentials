@@ -9,18 +9,17 @@ from keras.preprocessing import image
 from tensorflow.python.ops.gen_array_ops import Concat
 from keras.models import load_model
 
-model =load_model('CNN.h5')
+model=load_model('CNN.h5')
 app=Flask(__name__)
 
 @app.route('/')
-
 def showdashboard():
     return render_template('index.html')
 
 @app.route('/classification.html',methods=['GET','POST'])
 def classification():
     result=''
-    if request.method=='POSt':
+    if request.method=='POST':
         f=request.files['image'] 
         basepath=os.path.dirname(__file__)
         #print("current path",basepath)
