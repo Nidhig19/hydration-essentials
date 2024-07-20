@@ -34,20 +34,22 @@ def classification():
         x=img_to_array(img)
         x=x.reshape((1,256,256,3))
         
-        prediction=np.argmax(model.predict(x),axis=1)
+        prediction=model.predict(x)
+        per=((np.max(prediction))*100)
+        classes = np.argmax(prediction,axis=1)
         op=['Full water level','Half water level','Overflowing']
-        result=str(op[prediction[0]])
-        print(result)
-        return redirect(url_for('predict',file=f.filename,result=result))
+        result=str(op[classes[0]])
+        print(result,prediction)
+        return redirect(url_for('predict',per=per,file=f.filename,res=result))
     return render_template('classification.html')
 
 @app.route('/predict.html')
 def predict():
     file = request.args.get('file')
-    result = request.args.get('result')
+    res = request.args.get('res')
+    per = request.args.get('per')
     file_url = url_for('upload', filename=file)
-    print(file_url,result)
-    return render_template('predict.html',file=file_url,prediction=result)
+    return render_template('predict.html',per=per,file=file_url,prediction=res)
 
 @app.route('/uploads/<filename>')
 def upload(filename):
