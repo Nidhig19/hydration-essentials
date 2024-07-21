@@ -9,7 +9,7 @@ from PIL import Image
 from tensorflow.python.ops.gen_array_ops import Concat
 from keras.models import load_model
 
-model=load_model('models/my_model.h5')
+model=load_model('models/model.h5')
 app=Flask(__name__)
 
 UPLOAD_FOLDER = 'uploads'
@@ -35,7 +35,7 @@ def classification():
         x=x.reshape((1,256,256,3))
         
         prediction=model.predict(x)
-        per=((np.max(prediction))*100)
+        per=round((np.max(prediction))*100,2)
         classes = np.argmax(prediction,axis=1)
         op=['Full water level','Half water level','Overflowing']
         result=str(op[classes[0]])
