@@ -9,7 +9,7 @@ from PIL import Image
 from tensorflow.python.ops.gen_array_ops import Concat
 from keras.models import load_model
 
-model=load_model('models/model.h5')
+model=load_model('5 - Project Executables/models/model.h5')
 app=Flask(__name__)
 
 UPLOAD_FOLDER = 'uploads'
